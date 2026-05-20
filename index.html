@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blood Donor Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <h2>Blood Donor</h2>
+        <div class="nav-buttons">
+            <button onclick="openAbout()">About Us</button>
+            <button id="authBtn" onclick="openAuth()">Login / Register</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Find <span>Blood</span> Donors <br> Near You</h1>
+
+            <div class="card-container">
+
+                <!-- FIND DONOR CARD -->
+                <div class="card">
+                    <h3><i class="fa-solid fa-magnifying-glass"></i> Find Donor</h3>
+
+                    <select id="bloodGroup">
+                        <option>Select Blood Group</option>
+                        <option>A+</option>
+                        <option>B+</option>
+                        <option>O+</option>
+                        <option>AB+</option>
+                        <option>A-</option>
+                        <option>B-</option>
+                        <option>O-</option>
+                        <option>AB-</option>
+                    </select>
+
+                    <input type="text" id="cityInput" placeholder="Enter City">
+
+                    <button onclick="handleSearch()">Search</button>
+                </div>
+
+                <!-- BECOME DONOR CARD -->
+                <div class="card">
+                    <h2><span style="color:red">&#10084;</span> Become a Donor</h2>
+
+                    <p>Save lives by registering as a donor.</p>
+
+                    <button onclick="handleDonate()">Donate</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="results"></section>
+
+    <!-- LOGIN / REGISTER MODAL -->
+    <div id="authBox" class="modal hidden">
+        <div class="modal-content">
+
+            <!-- Login Form -->
+            <div id="loginForm">
+                <h3>Login</h3>
+                <input type="text" id="loginUser" placeholder="Username">
+                <input type="password" id="loginPass" placeholder="Password">
+                <button onclick="login()">Login</button>
+                <p>Don't have an account? 
+                    <span onclick="showRegister()">Register</span>
+                </p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerForm" class="hidden">
+                <h3>Register</h3>
+                <input type="text" id="regUser" placeholder="Username">
+                <input type="password" id="regPass" placeholder="Password">
+                <button onclick="register()">Register</button>
+                <p>Already have an account? 
+                    <span onclick="showLogin()">Login</span>
+                </p>
+            </div>
+
+            <button onclick="closeAuth()">Close</button>
+        </div>
+    </div>
+
+    <!-- DONOR FORM (SEPARATE MODAL - FIXED) -->
+    <div id="donorBox" class="modal hidden">
+        <div class="modal-content">
+            <h3>Become a Donor</h3>
+
+            <input type="text" id="donorName" placeholder="Name">
+            <input type="text" id="donorPhone" placeholder="Phone Number">
+            <input type="text" id="donorCity" placeholder="City">
+
+            <select id="donorBlood">
+                <option>Select Blood Group</option>
+                <option>A+</option>
+                <option>B+</option>
+                <option>O+</option>
+                <option>AB+</option>
+                <option>A-</option>
+                <option>B-</option>
+                <option>O-</option>
+                <option>AB-</option>
+            </select>
+
+            <select id="donorGender">
+                <option>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+
+            <button id="donorSubmitBtn">Submit</button>
+            <button onclick="closeDonorForm()">Close</button>
+        </div>
+    </div>
+
+    <!-- ABOUT US (SEPARATE MODAL - FIXED) -->
+    <div id="aboutBox" class="modal hidden">
+    <div class="modal-content">
+
+        <span class="close-btn" onclick="closeAbout()">✖</span>
+
+        <h2>About Us</h2>
+
+        <p>
+            Every drop of blood is a chance to save a life.  
+            Our platform connects donors and recipients quickly and efficiently.
+        </p>
+
+        <p>
+            We aim to build a community where helping others becomes simple, fast, and meaningful.
+        </p>
+
+        <p>
+            Whether you're searching for blood or ready to donate,
+            you are part of something powerful.
+        </p>
+
+        <h3>Be a hero. Save lives.</h3>
+
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
